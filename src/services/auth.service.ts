@@ -29,9 +29,7 @@ export class AuthService{
             token:responseToken,
             email:this.jwtHelper.decodeToken(responseToken).sub
         };
-
         this.storage.setLocalUser(user);
-        console.log(this.storage.getLocalUser());
     }
 
     logout(){
