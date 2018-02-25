@@ -1,0 +1,80 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>signup</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <form  [formGroup]="formGroup" (ngSubmit)="signupUser(); $event.preventDefault()">
+        <ion-item>
+          <ion-label stacked>Nome</ion-label>
+          <ion-input formControlName="nome" type="text"></ion-input>
+        </ion-item>
+        <p *ngIf="formGroup.controls['nome'].dirty && formGroup.controls['nome'].errors" margin-left>
+            Valor Inválido
+        </p>
+        <ion-item>
+          <ion-label stacked>Email</ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+        </ion-item>
+        <ion-list radio-group formControlName="tipo_pessoa">
+          <ion-list-header>Tipo de Pessoa</ion-list-header>
+          <ion-item>
+            <ion-label stacked>Física</ion-label>
+            <ion-radio checked="true" value="1"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label stacked>Jurídica</ion-label>
+            <ion-radio value="2"></ion-radio>
+          </ion-item>
+        </ion-list>
+        <ion-item>
+            <ion-label stacked>Cpf</ion-label>
+            <ion-input name="cpf" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Logradouro</ion-label>
+            <ion-input name="logradouro" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>NUmero</ion-label>
+            <ion-input name="numero" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Bairro</ion-label>
+            <ion-input name="bairro" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Cep</ion-label>
+            <ion-input name="cep" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Telefone 1</ion-label>
+            <ion-input name="telefone1" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Telefone 2</ion-label>
+            <ion-input name="telefone2" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Estado</ion-label>
+            <ion-select formControlName="estado" (ionChange)="updateCidades()">
+                <ion-option *ngFor="let estado of estados" [value]="estado.id">
+                    {{estado.nome}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Cidade</ion-label>
+            <ion-select formControlName="cidade">
+                <ion-option *ngFor="let cidade of cidades" [value]="cidade.id">
+                    {{cidade.nome}}
+                </ion-option>
+            </ion-select>
+        </ion-item>
+        <button [disabled]="formGroup.invalid" ion-button block type="submit">Enviar</button>
+      </form>
+</ion-content>

@@ -4,11 +4,14 @@ import { HttpInterceptor,HttpRequest,HttpHandler,HttpEvent,HTTP_INTERCEPTORS} fr
 import { Observable } from 'rxjs/Rx';
 import { StorageService } from '../services/storage.service';
 import { AlertController } from 'ionic-angular/components/alert/alert-controller';
+import { NavController } from 'ionic-angular/navigation/nav-controller';
 
 @Injectable()
 export class MyHttpRequestError implements HttpInterceptor {
 
-  constructor(public storage:StorageService, public alertCtrl: AlertController){}
+  constructor(public storage:StorageService, 
+    public alertCtrl: AlertController
+  ){}
 
   intercept(request: HttpRequest<any>,next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
@@ -58,7 +61,7 @@ export class MyHttpRequestError implements HttpInterceptor {
     alert.present();
   }
 
-  handleDefaultError(objError){
+  handleDefaultError(){
      let alert = this.alertCtrl.create({
       title:'Ocorreu Um Erro',
       message:'Tente Novamente',

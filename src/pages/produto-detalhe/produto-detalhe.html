@@ -1,0 +1,21 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>produto-detalhe</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-thumbnail item-start>
+          <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>{{produto?.nome}}</h2>
+      <p>{{produto?.preco | currency}}</p>
+      <button ion-button clear item-end>Adicionar Ao Carrinho</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

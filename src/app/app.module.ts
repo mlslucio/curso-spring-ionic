@@ -16,6 +16,7 @@ import {ErrorInterceptionProvider} from '../interceptors/error-interceptor'
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 import {UsuarioService} from '../services/domain/usuario.service';
+import {ProdutoService} from '../services/domain/produto.service'
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import {UsuarioService} from '../services/domain/usuario.service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp
-  ],
+    ],
   providers: [
     StatusBar,
     SplashScreen,
@@ -40,7 +41,8 @@ import {UsuarioService} from '../services/domain/usuario.service';
     ErrorInterceptionProvider,
     AuthService,
     StorageService,
-    UsuarioService
+    UsuarioService,
+    ProdutoService
   ]
 })
 export class AppModule {}

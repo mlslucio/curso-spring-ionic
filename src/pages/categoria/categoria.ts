@@ -32,8 +32,12 @@ export class CategoriaPage {
         this.items = response;
       })  ,
     error => {
-      console.log(error);
+      
     };
+  }
+
+  showProdutos(categoriaId:string){
+    this.navCtrl.push('ProdutoPage', {categoriaId:categoriaId});
   }
 
 }
