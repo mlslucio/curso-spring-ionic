@@ -2,7 +2,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>produto-detalhe</ion-title>
+    <ion-title>Detalhes do Produto</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,7 +15,7 @@
       </ion-thumbnail>
       <h2>{{produto?.nome}}</h2>
       <p>{{produto?.preco | currency}}</p>
-      <button ion-button clear item-end>Adicionar Ao Carrinho</button>
+      <button (click)="addToCart(produto)" ion-button clear item-end>Adicionar Ao Carrinho</button>
     </ion-item>
   </ion-list>
 </ion-content>

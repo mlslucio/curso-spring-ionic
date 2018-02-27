@@ -16,7 +16,8 @@ import {ErrorInterceptionProvider} from '../interceptors/error-interceptor'
 import { AuthService } from '../services/auth.service';
 import { StorageService } from '../services/storage.service';
 import {UsuarioService} from '../services/domain/usuario.service';
-import {ProdutoService} from '../services/domain/produto.service'
+import {ProdutoService} from '../services/domain/produto.service';
+import {CartService} from '../services/cart.service';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import {ProdutoService} from '../services/domain/produto.service'
     AuthService,
     StorageService,
     UsuarioService,
-    ProdutoService
+    ProdutoService,
+    CartService
   ]
 })
 export class AppModule {}

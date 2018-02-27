@@ -13,8 +13,8 @@
       <ion-thumbnail item-start>
           <img src="img/thumbnail-totoro.png">
       </ion-thumbnail>
-      <h2>{{produto.nome}}</h2>
-      <p>{{produto.preco | currency}}</p>
+      <h2>{{produto?.nome}}</h2>
+      <p>{{produto?.preco | currency}}</p>
       <button (click)="verDetalhes(produto)" ion-button clear item-end>Comprar</button>
     </ion-item>
   </ion-list>
