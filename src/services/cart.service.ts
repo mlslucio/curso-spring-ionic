@@ -32,6 +32,60 @@ export class CartService{
         cart.items.push({quantidade:1, produto: produto});
 
        this.storage.setCart(cart);
-
     }
+
+    removeProduto(produto:Produto){
+
+        let cart:Cart = this.getCart();
+        
+        let position = cart.items.findIndex(x => x.produto.id == produto.id);
+ 
+        if(position != -1)
+         cart.items.splice(position, 1)
+ 
+        this.storage.setCart(cart);
+
+        return cart.items;
+ 
+     }
+
+     incrementaQtdProduto(produto:Produto){
+
+        let cart:Cart = this.getCart();
+        
+        let position = cart.items.findIndex(x => x.produto.id == produto.id);
+ 
+        if(position != -1)
+         cart.items[position].quantidade++;
+ 
+        this.storage.setCart(cart);
+
+        return cart.items;
+ 
+     }
+
+     decrementaQtdProduto(produto:Produto){
+
+        let cart:Cart = this.getCart();
+        
+        let position = cart.items.findIndex(x => x.produto.id == produto.id);
+ 
+        if(position != -1 && cart.items[position].quantidade > 0)
+         cart.items[position].quantidade--;
+ 
+        this.storage.setCart(cart);
+
+        return cart.items;
+ 
+     }
+
+     getValorTotal():number{
+         let cart = this.storage.getCart().items;
+         let soma = 0;
+
+        for(var i=0; i<cart.length; i++){
+            soma += cart[i].produto.preco * cart[i].quantidade;
+        }
+        return soma;
+     }
 } 

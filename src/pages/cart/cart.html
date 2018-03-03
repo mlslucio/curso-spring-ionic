@@ -1,23 +1,25 @@
 <ion-header>
-    <ion-navbar>
-      <ion-title>Carrinho</ion-title>
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-    </ion-navbar>
-  
-  </ion-header>
-  <ion-content padding>
-    <ion-list>
-      <ion-item *ngFor="let item of cartItem">
-        <ion-thumbnail item-start>
-            <img src="img/thumbnail-totoro.png">
-        </ion-thumbnail>
-        <h2>{{item.produto.nome}}</h2>
-        <p>{{item.quantidade}}</p>
-        
-        <button  ion-button clear item-end>Remover</button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
-  
+  <ion-navbar>
+    <ion-title>Carrinho</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding>     
+  <ion-list>
+    <ion-item *ngFor="let item of cartItem">
+      <ion-thumbnail item-start>
+          <img src="img/thumbnail-totoro.png">
+      </ion-thumbnail>
+      <h2>{{item.produto.nome}}</h2> 
+      <p>{{item.quantidade}}</p>
+      <ion-icon (click)="incrementaQtdProduto(item.produto)" name="add-circle"></ion-icon> <ion-icon (click)="decrementaQtdProduto(item.produto)" name="remove-circle"></ion-icon> 
+      <ion-icon (click)="removeProduto(item.produto)" name="trash" item-end></ion-icon>
+    </ion-item>
+    <ion-item>
+      <p>Total: {{getvalorTotal()}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
